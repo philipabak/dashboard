@@ -1,0 +1,87 @@
+<div class="page-content" ng-controller="SettingsConfigCtrl" class="mainview-animation animated">
+    <ol class="breadcrumb">
+		<li><a href="#/">Dashboard</a></li>
+		<li>Form</li>
+		<li class="active">Form Components</li>
+	</ol>
+
+	<div class="container-fluid" ng-controller="SettingsConfigCtrl">
+
+	<div data-widget-group="group1">
+
+		<div class="panel panel-default" data-widget='{"draggable": "false"}'>
+			<div class="panel-heading">
+				<h2>Roles & Permissions</h2>
+				<div class="panel-ctrls" data-actions-container="" data-action-collapse='{"target": ".panel-body"}'></div>
+			</div>
+			<div class="panel-body">
+				<form action="" class="form-horizontal row-border" ng-model="permissionForm">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Role:</label>
+						<div class="col-sm-8">
+							<select class="form-control" id="source" ng-model="currentRole">
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Permissions:</label>
+						<div class="col-sm-8">
+                            <table class="table table-bordered ng-scope">
+                                <thead>
+                                    <tr>
+                                        <th class="ng-binding ng-scope text-center">pages</th>
+                                        <th ng-repeat="heading in data.headings" class="ng-binding ng-scope text-center">{{ heading.name }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="row in data.rows" class="ng-scope" ng-if="row.role.core_role == currentRole">
+                                        <td class="ng-binding text-center">{{ row.role.name }}</td>
+                                        <td ng-repeat="permissionValue in row.permissionValues" class="ng-binding text-center">
+                                            <input type="checkbox" ng-model="permissionValue.value" ng-true-value="1" ng-false-value="0" ng-click="changePermission(permissionValue.permissionId, row.role._id)">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 text-center">
+						<button class="btn-primary btn" ng-click="submitPermissionForm()">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default" data-widget='{"draggable": "false"}'>
+			<div class="panel-heading">
+				<h2>Delete Group</h2>
+				<div class="panel-ctrls" data-actions-container="" data-action-collapse='{"target": ".panel-body"}'></div>
+			</div>
+			<div class="panel-body">
+				<form action="" class="form-horizontal row-border" ng-model="permissionForm">
+					<div class="form-group">
+						<div class="col-sm-8 col-sm-offset-2 text-center">
+                            Delete group and group related, charts, dashboards, files and relationships.
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 text-center">
+						<button class="btn-danger btn" ng-click="deleteGroup()">Delete</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	</div> <!-- container-fluid -->
+</div>
+

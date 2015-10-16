@@ -1,0 +1,212 @@
+<div class="page-content" ng-controller="ChartsCreateCtrl" class="mainview-animation animated">
+  <ol class="breadcrumb">
+    <li><a href="#/">Dashboard</a></li>
+    <li>UI Components</li>
+    <li class="active">Tabs &amp; Accordions</li>
+  </ol>
+  <ul class="list-actions pull-left">
+    <li>
+      <button ng-click="addChart()" class="btn btn-default">
+        <i class="ti-pie-chart"></i> Add Chart
+      </button>
+    </li>
+    <li>
+      <button ng-click="addText()" class="btn btn-default">
+        <i class="ti-smallcap"></i> Add Text
+      </button>
+    </li>
+    </ul>
+
+    <ul class="list-actions pull-right">
+    <li>
+      <button ng-click="saveDashboard()" class="btn btn-success">
+        <i class="ti-check"></i> Save
+      </button>
+    </li>
+    </ul>
+
+    <div ng-show="!loading">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-5">
+                <!-- Chart Options -->
+                <tabset tab-theme="default" tab-position="left" class="tab-container tab-default tab-left">
+                  <tab heading="Title & Subtitle">
+                    <form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Title</label>
+                        <input ng-model="chartConfig.options.title.text" type="text" class="form-control" id="title" placeholder="Title">
+                        <div class="row">
+                          <div class="col-md-12 mt-5">
+                            <!-- Text Align -->
+                            <div style="display: inline-block" class="btn-group" role="group" aria-label="...">
+                              <button ng-click="chartConfig.options.title.align = 'left'" ng-class="{'active': chartConfig.options.title.align === 'left'}" type="button" class="btn btn-default"><i class="ti-align-left"></i></button>
+                              <button ng-click="chartConfig.options.title.align = 'center'" ng-class="{'active': chartConfig.options.title.align === 'center'}" type="button" class="btn btn-default"><i class="ti-align-center"></i></button>
+                              <button ng-click="chartConfig.options.title.align = 'right'" ng-class="{'active': chartConfig.options.title.align === 'right'}" type="button" class="btn btn-default"><i class="ti-align-right"></i></button>
+                            </div>
+                            <!-- Text Color -->
+                            <div style="display: inline-block; width: 34px; vertical-align: bottom;">
+                              <input ng-style="{'backgroundColor': chartConfig.options.title.style.color}" style="color: transparent;" ng-model="chartConfig.options.title.style.color" type="text" colorpicker="rgba" class="form-control" />
+                            </div>
+                            <!-- Font Size -->
+                            <div style="display: inline-block; width: 55px; vertical-align: bottom;">
+                              <input ng-model="chartConfig.options.title.style.fontSize" type="text" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Subtitle</label>
+                        <input ng-model="chartConfig.options.subtitle.text" type="text" class="form-control" id="subtitle" placeholder="Subtitle">
+                        <div class="row">
+                          <div class="col-md-12 mt-5">
+                            <!-- Text Align -->
+                            <div style="display: inline-block" class="btn-group" role="group" aria-label="...">
+                              <button ng-click="chartConfig.options.subtitle.align = 'left'" ng-class="{'active': chartConfig.options.subtitle.align === 'left'}" type="button" class="btn btn-default"><i class="ti-align-left"></i></button>
+                              <button ng-click="chartConfig.options.subtitle.align = 'center'" ng-class="{'active': chartConfig.options.subtitle.align === 'center'}" type="button" class="btn btn-default"><i class="ti-align-center"></i></button>
+                              <button ng-click="chartConfig.options.subtitle.align = 'right'" ng-class="{'active': chartConfig.options.subtitle.align === 'right'}" type="button" class="btn btn-default"><i class="ti-align-right"></i></button>
+                            </div>
+                            <!-- Text Color -->
+                            <div style="display: inline-block; width: 34px; vertical-align: bottom;">
+                              <input ng-style="{'backgroundColor': chartConfig.options.subtitle.style.color}" style="color: transparent;" ng-model="chartConfig.options.subtitle.style.color" type="text" colorpicker="rgba" class="form-control" />
+                            </div>
+                            <!-- Font Size -->
+                            <div style="display: inline-block; width: 55px; vertical-align: bottom;">
+                              <input ng-model="chartConfig.options.subtitle.style.fontSize" type="text" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </tab>
+                  <tab heading="Axes">
+                    <form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Y-Axis</label>
+                        <input ng-model="chartConfig.options.yAxis.title.text" type="text" class="form-control" id="y-axis-title" placeholder="y-Axis Title">
+                        <div class="row">
+                          <div class="col-md-12 mt-5">
+                            <!-- Text Align -->
+                            <div style="display: inline-block" class="btn-group" role="group" aria-label="...">
+                              <button ng-click="chartConfig.options.yAxis.title.align = 'high'" ng-class="{'active': chartConfig.options.yAxis.title.align === 'high'}" type="button" class="btn btn-default"><i class="ti-arrow-up"></i></button>
+                              <button ng-click="chartConfig.options.yAxis.title.align = 'middle'" ng-class="{'active': chartConfig.options.yAxis.title.align === 'middle'}" type="button" class="btn btn-default"><i class="ti-split-v"></i></button>
+                              <button ng-click="chartConfig.options.yAxis.title.align = 'low'" ng-class="{'active': chartConfig.options.yAxis.title.align === 'low'}" type="button" class="btn btn-default"><i class="ti-arrow-down"></i></button>
+                            </div>
+                            <!-- Text Color -->
+                            <div style="display: inline-block; width: 34px; vertical-align: bottom;">
+                              <input ng-style="{'backgroundColor': chartConfig.options.yAxis.title.style.color}" style="color: transparent;" ng-model="chartConfig.options.yAxis.title.style.color" type="text" colorpicker="rgba" class="form-control" />
+                            </div>
+                            <!-- Font Size -->
+                            <div style="display: inline-block; width: 55px; vertical-align: bottom;">
+                              <input ng-model="chartConfig.options.yAxis.title.style.fontSize" type="text" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                        <label class="mt-5">Labels</label>
+                        <div class="row mt-2">
+                          <div class="col-md-6">
+                            <!-- Text Color -->
+                            <div style="display: inline-block; width: 34px; vertical-align: bottom;">
+                              <input ng-style="{'backgroundColor': chartConfig.options.yAxis.labels.style.color}" style="color: transparent;" ng-model="chartConfig.options.yAxis.labels.style.color" type="text" colorpicker="rgba" class="form-control" />
+                            </div>
+                            <!-- Font Size -->
+                            <div style="display: inline-block; width: 55px; vertical-align: bottom;">
+                              <input placeholder="11" ng-model="chartConfig.options.yAxis.labels.style.fontSize" type="text" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mt-5">
+                          <div class="col-md-6">
+                            <div class="input-group">
+                              <span class="input-group-addon" id="prefix-label">Prefix</span>
+                              <input ng-model="settings.yAxis.labels.preFix" type="text" class="form-control" placeholder="Prefix" aria-describedby="prefix-label">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="input-group">
+                              <span class="input-group-addon" id="postfix-label">Postfix</span>
+                              <input ng-model="settings.yAxis.labels.postFix" type="text" class="form-control" placeholder="Postfix" aria-describedby="postfix-label">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">X-Axis</label>
+                        <input ng-model="chartConfig.options.xAxis.title.text" type="text" class="form-control" id="y-axis-title" placeholder="y-Axis Title">
+                        <div class="row">
+                          <div class="col-md-12 mt-5">
+                            <!-- Text Align -->
+                            <div style="display: inline-block" class="btn-group" role="group" aria-label="...">
+                              <button ng-click="chartConfig.options.xAxis.title.align = 'high'" ng-class="{'active': chartConfig.options.xAxis.title.align === 'high'}" type="button" class="btn btn-default"><i class="ti-arrow-up"></i></button>
+                              <button ng-click="chartConfig.options.xAxis.title.align = 'middle'" ng-class="{'active': chartConfig.options.xAxis.title.align === 'middle'}" type="button" class="btn btn-default"><i class="ti-split-v"></i></button>
+                              <button ng-click="chartConfig.options.xAxis.title.align = 'low'" ng-class="{'active': chartConfig.options.xAxis.title.align === 'low'}" type="button" class="btn btn-default"><i class="ti-arrow-down"></i></button>
+                            </div>
+                            <!-- Text Color -->
+                            <div style="display: inline-block; width: 34px; vertical-align: bottom;">
+                              <input ng-style="{'backgroundColor': chartConfig.options.xAxis.title.style.color}" style="color: transparent;" ng-model="chartConfig.options.xAxis.title.style.color" type="text" colorpicker="rgba" class="form-control" />
+                            </div>
+                            <!-- Font Size -->
+                            <div style="display: inline-block; width: 55px; vertical-align: bottom;">
+                              <input ng-model="chartConfig.options.xAxis.title.style.fontSize" type="text" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                        <label class="mt-5">Labels</label>
+                        <div class="row mt-2">
+                          <div class="col-md-6">
+                            <!-- Text Color -->
+                            <div style="display: inline-block; width: 34px; vertical-align: bottom;">
+                              <input ng-style="{'backgroundColor': chartConfig.options.xAxis.labels.style.color}" style="color: transparent;" ng-model="chartConfig.options.xAxis.labels.style.color" type="text" colorpicker="rgba" class="form-control" />
+                            </div>
+                            <!-- Font Size -->
+                            <div style="display: inline-block; width: 55px; vertical-align: bottom;">
+                              <input placeholder="11" ng-model="chartConfig.options.xAxis.labels.style.fontSize" type="text" class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mt-5">
+                          <div class="col-md-6">
+                            <div class="input-group">
+                              <span class="input-group-addon" id="prefix-label">Prefix</span>
+                              <input ng-model="settings.xAxis.labels.preFix" type="text" class="form-control" placeholder="Prefix" aria-describedby="prefix-label">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="input-group">
+                              <span class="input-group-addon" id="postfix-label">Postfix</span>
+                              <input ng-model="settings.xAxis.labels.postFix" type="text" class="form-control" placeholder="Postfix" aria-describedby="postfix-label">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </tab>
+                  <tab heading="Series">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores in eveniet sapiente error fuga tenetur ex ea dignissimos voluptas ab molestiae eos totam quo dolorem maxime illo neque quia itaque. Asperiores in eveniet sapiente error fuga tenetur ex ea dignissimos voluptas ab molestiae eos totam quo dolorem maxime illo neque quia itaque.</p>
+                  </tab>
+                  <tab heading="Tooltips">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores in eveniet sapiente error fuga tenetur ex ea dignissimos voluptas ab molestiae eos totam quo dolorem maxime illo neque quia itaque. Asperiores in eveniet sapiente error fuga tenetur ex ea dignissimos voluptas ab molestiae eos totam quo dolorem maxime illo neque quia itaque.</p>
+                  </tab>
+                  <tab heading="Legend">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores in eveniet sapiente error fuga tenetur ex ea dignissimos voluptas ab molestiae eos totam quo dolorem maxime illo neque quia itaque. Asperiores in eveniet sapiente error fuga tenetur ex ea dignissimos voluptas ab molestiae eos totam quo dolorem maxime illo neque quia itaque.</p>
+                  </tab>
+                  <tab heading="Drilldown">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores in eveniet sapiente error fuga tenetur ex ea dignissimos voluptas ab molestiae eos totam quo dolorem maxime illo neque quia itaque. Asperiores in eveniet sapiente error fuga tenetur ex ea dignissimos voluptas ab molestiae eos totam quo dolorem maxime illo neque quia itaque.</p>
+                  </tab>
+                </tabset>
+
+              </div>
+              <div class="col-md-7">
+                <!-- Charts Panel -->
+                <dim-charts chart-config="chartConfig"></dim-charts>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="nm-np">
+<head>
+    <meta charset="utf-8"/>
+    <title>{+title /}</title>
+    <link rel="stylesheet" href="css/app.css"/>
+
+    <!-- CSS from Bower Components -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="lib/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" />
+    <link rel="stylesheet" href="lib/angular-ui-tree/dist/angular-ui-tree.min.css" />
+    <link rel="stylesheet" href="lib/bower-jvectormap/jquery-jvectormap-1.2.2.css" />
+    <link rel="stylesheet" href="lib/ng-grid/ng-grid.css" />
+    <link rel="stylesheet" href="lib/angular-xeditable/dist/css/xeditable.css" />
+    <link rel="stylesheet" href="lib/pnotify/pnotify.core.css" />
+    <link rel="stylesheet" href="lib/pnotify/pnotify.buttons.css" />
+    <link rel="stylesheet" href="lib/pnotify/pnotify.history.css" />
+    <link rel="stylesheet" href="lib/nanoscroller/bin/css/nanoscroller.css" />
+    <link rel="stylesheet" href="lib/textAngular/src/textAngular.css" />
+    <link rel="stylesheet" href="lib/angular-ui-grid/ui-grid.css" />
+    <link rel="stylesheet" href="lib/switchery/dist/switchery.css" />
+    <link rel="stylesheet" href="lib/fullcalendar/dist/fullcalendar.css" />
+    <link rel="stylesheet" href="lib/angular-ui-select/dist/select.css" />
+    <link rel="stylesheet" href="lib/animate.css/animate.css" />
+    <link rel="stylesheet" href="lib/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+    <link rel="stylesheet" href="lib/angular-bootstrap-colorpicker/css/colorpicker.css"/>
+    <link rel="stylesheet" href="lib/nvd3/src/nv.d3.css" />
+    <link rel="stylesheet" href="lib/skylo/vendor/styles/skylo.css" />
+    <link rel="stylesheet" href="lib/themify-icons/themify-icons.css" />
+    <link rel="stylesheet" href="lib/Jcrop/css/Jcrop.min.css" />
+    <link rel="stylesheet" href="lib/sweetalert/dist/sweetalert.css" />
+    <link rel="stylesheet" href="lib/angular-gridster/dist/angular-gridster.min.css"/>
+    <!-- Add New Bower Component CSS Above -->
+</head>
+<body ng-app="dim" ng-controller="MainController" ng-class="bodyClass()" class="animated-content" ng-click="hideHeaderBar();hideChatBox()" to-top-on-load faux-offcanvas>
+
+<!-- JS from Bower Components -->
+  <script src="lib/less.js/dist/less-1.6.2.js" data-concat="false"></script>
+  <script src="lib/modernizr/modernizr.js"></script>
+  <script src="lib/jquery/dist/jquery.js"></script>
+  <script src="lib/underscore/underscore.js"></script>
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="lib/angular-ui-utils/ui-utils.js"></script>
+  <script src="lib/angular-resource/angular-resource.js"></script>
+  <script src="lib/angular-cookies/angular-cookies.js"></script>
+  <script src="lib/angular-jwt/dist/angular-jwt.min.js"></script>
+  <script src="lib/a0-angular-storage/dist/angular-storage.min.js"></script>
+  <script src="lib/angular-sanitize/angular-sanitize.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script>
+  <script src="lib/angular-animate/angular-animate.js"></script>
+  <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="lib/seiyria-bootstrap-slider/js/bootstrap-slider.js"></script>
+  <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="lib/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.min.js"></script>
+  <script src="lib/jquery.ui/ui/jquery.ui.core.js"></script>
+  <script src="lib/jquery.ui/ui/jquery.ui.widget.js"></script>
+  <script src="lib/jquery.ui/ui/jquery.ui.mouse.js"></script>
+  <script src="lib/jquery.ui/ui/jquery.ui.draggable.js"></script>
+  <script src="lib/jquery.ui/ui/jquery.ui.sortable.js"></script>
+  <script src="lib/jquery.ui/ui/jquery.ui.resizable.js"></script>
+  <script src="lib/jquery.easing/js/jquery.easing.js"></script>
+  <script src="lib/flot/jquery.flot.js"></script>
+  <script src="lib/flot/jquery.flot.stack.js"></script>
+  <script src="lib/flot/jquery.flot.pie.js"></script>
+  <script src="lib/flot/jquery.flot.resize.js"></script>
+  <script src="lib/flot.tooltip/js/jquery.flot.tooltip.js"></script>
+  <script src="lib/angular-ui-tree/dist/angular-ui-tree.js"></script>
+  <script src="lib/moment/moment.js"></script>
+  <script src="lib/bower-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+  <script src="lib/bower-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="lib/ng-grid/build/ng-grid.js"></script>
+  <script src="lib/angular-xeditable/dist/js/xeditable.js"></script>
+  <script src="lib/iCheck/icheck.min.js"></script>
+  <script src="lib/google-code-prettify/src/prettify.js"></script>
+  <script src="lib/bootbox.js/bootbox.js"></script>
+  <script src="lib/jquery-autosize/jquery.autosize.js"></script>
+  <script src="lib/gmaps/gmaps.js"></script>
+  <script src="lib/jquery.pulsate/jquery.pulsate.js"></script>
+  <script src="lib/jquery.knob/js/jquery.knob.js"></script>
+  <script src="lib/jquery.sparkline/index.js"></script>
+  <script src="lib/flow.js/dist/flow.js"></script>
+  <script src="lib/ng-flow/dist/ng-flow.js"></script>
+  <script src="lib/shufflejs/dist/jquery.shuffle.js"></script>
+  <script src="lib/pnotify/pnotify.core.js"></script>
+  <script src="lib/pnotify/pnotify.buttons.js"></script>
+  <script src="lib/pnotify/pnotify.callbacks.js"></script>
+  <script src="lib/pnotify/pnotify.confirm.js"></script>
+  <script src="lib/pnotify/pnotify.desktop.js"></script>
+  <script src="lib/pnotify/pnotify.history.js"></script>
+  <script src="lib/pnotify/pnotify.nonblock.js"></script>
+  <script src="lib/nanoscroller/bin/javascripts/jquery.nanoscroller.js"></script>
+  <script src="lib/angular-nanoscroller/scrollable.js"></script>
+  <script src="lib/rangy/rangy-core.min.js"></script>
+  <script src="lib/rangy/rangy-classapplier.min.js"></script>
+  <script src="lib/rangy/rangy-selectionsaverestore.min.js"></script>
+  <script src="lib/rangy/rangy-serializer.min.js"></script>
+  <script src="lib/textAngular/src/textAngular.js"></script>
+  <script src="lib/textAngular/src/textAngular-sanitize.js"></script>
+  <script src="lib/textAngular/src/textAngularSetup.js"></script>
+  <script src="lib/rangy/rangy-selectionsaverestore.js"></script>
+  <script src="lib/angular-ui-grid/ui-grid.js"></script>
+  <script src="lib/transitionize/dist/transitionize.js"></script>
+  <script src="lib/fastclick/lib/fastclick.js"></script>
+  <script src="lib/switchery/dist/switchery.js"></script>
+  <script src="lib/ng-switchery/src/ng-switchery.js"></script>
+  <script src="lib/angular-ui-select/dist/select.js"></script>
+  <script src="lib/skycons/skycons.js"></script>
+  <script src="lib/angular-skycons/angular-skycons.js"></script>
+  <script src="lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script src="lib/d3/d3.js"></script>
+  <script src="lib/nvd3/nv.d3.js"></script>
+  <script src="lib/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
+  <script src="lib/oclazyload/dist/ocLazyLoad.min.js"></script>
+  <script src="lib/skylo/vendor/scripts/skylo.js"></script>
+  <script src="lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+  <script src="lib/jquery.easy-pie-chart/dist/angular.easypiechart.js"></script>
+  <script src="lib/card/lib/js/jquery.card.js"></script>
+  <script src="lib/velocity/velocity.js"></script>
+  <script src="lib/velocity/velocity.ui.js"></script>
+  <script src="lib/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="lib/angular-sweetalert/SweetAlert.min.js"></script>
+  <script src="lib/zeroclipboard/dist/ZeroClipboard.min.js"></script>
+  <script src="lib/angular-truncate/src/truncate.js"></script>
+  <script src="lib/highcharts-ng/dist/highcharts-ng.min.js"></script>
+  <script src="lib/javascript-detect-element-resize/jquery.resize.js"></script>
+  <script src="lib/angular-gridster/dist/angular-gridster.min.js"></script>
+  <script src="lib/angular-autoFields-bootstrap/autofields.min.js"></script>
+  <script src="lib/angular-autoFields-bootstrap/autofields-bootstrap.min.js"></script>
+  <!-- Add New Bower Component JS Above -->
+
+  <!-- Plugins JS -->
+  <script src="http://code.highcharts.com/highcharts.src.js"></script>
+  <script type='text/javascript' src='http://maps.google.com/maps/api/js?sensor=true'></script>
+  <script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>
+  <script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>
+  <script type='text/javascript' src='app/assets/plugins/form-fseditor/jquery.fseditor-min.js'></script>
+  <script type='text/javascript' src='app/assets/plugins/form-jasnyupload/fileinput.min.js'></script>
+  <script type='text/javascript' src='app/assets/plugins/flot/jquery.flot.spline.js'></script>
+  <script type='text/javascript' src='app/assets/plugins/flot/jquery.flot.orderBars.js'></script>
+  <script type='text/javascript' src='app/assets/plugins/wijets/wijets.js'></script>
+  <script type='text/javascript' src="app/assets/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js"></script>
+  <!-- Add New Plugin JS Above -->
+
+  <!-- Main App JS -->
+  <script src="app.js"></script>
+  <script src="app/core/core.js"></script>
+  <script src="app/core/service/progressLoader.js"></script>
+  <script src="app/core/service/lazyLoad.js"></script>
+  <script src="app/core/filter/safeHtml.js"></script>
+  <script src="app/core/service/bootbox.js"></script>
+  <script src="app/core/service/pinesNotifications.js"></script>
+  <script src="app/core/service/wijets.js"></script>
+  <script src="app/core/service/enquire.js"></script>
+  <script src="app/core/service/theme.js"></script>
+  <script src="app/core/directive/autosize.js"></script>
+  <script src="app/core/directive/creditCard.js"></script>
+  <script src="app/core/directive/fullscreen.js"></script>
+  <script src="app/core/directive/daterangepicker.js"></script>
+  <script src="app/core/directive/wizard.js"></script>
+  <script src="app/core/directive/inputmask.js"></script>
+  <script src="app/core/directive/croppable.js"></script>
+  <script src="app/core/directive/theme.core.directives.js"></script>
+
+  <script src="app/core/mainController.js"></script>
+  <script src="app/core/messagesController.js"></script>
+  <script src="app/core/notificationsController.js"></script>
+  <script src="app/core/navigationController.js"></script>
+  <script src="app/common/partial/header/header.js"></script>
+  <script src="app/charts/charts.js"></script>
+  <script src="app/charts/directive/canvas.js"></script>
+  <script src="app/charts/directive/flot.js"></script>
+  <script src="app/charts/directive/morris.js"></script>
+  <script src="app/charts/directive/sparklines.js"></script>
+  <script src="app/charts/partial/charts.create/charts.create.js"></script>
+  <script src="app/charts/partial/charts.list/charts.list.js"></script>
+  <script src="app/charts/partial/charts.share/charts.share.js"></script>
+  <script src="app/dashboards/dashboards.js"></script>
+  <script src="app/dashboards/partial/dashboards.create/dashboards.create.js"></script>
+  <script src="app/dashboards/partial/dashboards.list/dashboards.list.js"></script>
+  <script src="app/dashboards/partial/dashboards.share/dashboards.share.js"></script>
+  <script src="app/home/home.js"></script>
+  <script src="app/home/partial/home/home.js"></script>
+  <script src="app/account/account.js"></script>
+  <script src="app/account/partial/account.profile/account.profile.js"></script>
+  <script src="app/files/files.js"></script>
+  <script src="app/files/partial/files.list/files.list.js"></script>
+  <script src="app/charts/modals/shareChart/shareChart.js"></script>
+  <script src="app/charts/service/Charts.js"></script>
+  <script src="app/core/service/HearstAPI.js"></script>
+  <script src="app/charts/modals/loadCharts/loadCharts.js"></script>
+  <script src="app/files/modals/loadFiles/loadFiles.js"></script>
+  <script src="app/files/service/Files.js"></script>
+  <script src="app/files/modals/replaceFile/replaceFile.js"></script>
+  <script src="app/files/directive/fileUpload.js"></script>
+  <script src="app/files/modals/uploadFiles/uploadFiles.js"></script>
+  <script src="app/files/service/Files.js"></script>
+  <script src="app/charts/directive/dimCharts/dimCharts.js"></script>
+  <script src="app/members/members.js"></script>
+  <script src="app/members/partial/members.list/members.list.js"></script>
+  <script src="app/settings/settings.js"></script>
+  <script src="app/settings/partial/settings.config/settings.config.js"></script>
+  <script src="app/dashboards/service/Dashboards.js"></script>
+  <script src="app/dashboards/modals/loadDashboards/loadDashboards.js"></script>
+  <script src="app/dashboards/modals/shareDashboards/shareDashboards.js"></script>
+  <script src="app/dashboards/modals/tileSettings/tileSettings.js"></script>
+  <script src="app/dashboards/modals/textEditor/textEditor.js"></script>
+  <script src="app/account/service/User.js"></script>
+  <script src="app/group/group.js"></script>
+  <script src="app/group/service/Group.js"></script>
+  <script src="app/settings/service/Setting.js"></script>
+  <script src="app/settings/modals/settingsSavePermissionModal/settingsSavePermissionModal.js"></script>
+  <script src="app/settings/modals/settingsDeleteGroupModal/settingsDeleteGroupModal.js"></script>
+  <!-- Add New Component JS Above -->
+
+<ng-include src="'app/common/partial/header/header.html'" ng-class="{'navbar-fixed-top': getLayoutOption('fixedHeader')}"></ng-include>
+
+  <div id="wrapper">
+      <nav id="headernav" class="navbar ng-hide {{getLayoutOption('sidebarThemeClass').replace('sidebar', 'navbar')}}" role="navigation" ng-show="getLayoutOption('layoutHorizontal') && !layoutLoading">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <i class="fa fa-reorder"></i>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse" ng-class="{'large-icons-nav': getLayoutOption('layoutHorizontalLargeIcons')}" id="horizontal-navbar">
+            <ul ng-controller="NavigationController" class="nav navbar-nav">
+              <li ng-repeat="item in menu"
+                ng-if="!(item.hideOnHorizontal||item.separator)"
+                ng-class="{ hasChild: (item.children!==undefined),
+                      active: item.selected,
+                        open: (item.children!==undefined) && item.open,
+                   'nav-separator': item.separator==true }"
+                ng-include="'app/views/templates/nav_renderer_horizontal.html'"
+              ></li>
+            </ul>
+        </div>
+      </nav>
+
+      <div div id="layout-static">
+        <div class="static-sidebar-wrapper {{getLayoutOption('sidebarThemeClass')}}" ng-show="!layoutLoading">
+          <div class="static-sidebar" role="navigation">
+            <div class="sidebar">
+              <div class="widget" ng-cloak>
+                    <div class="widget-body">
+                        <div class="userinfo">
+                            <div class="avatar">
+                                <img masked-image data-ng-src="{{ auth.profile.picture }}" class="img-responsive img-circle">
+                            </div>
+                            <div class="info">
+                                <span class="username">{{ auth.profile.name }}</span>
+                                <span class="useremail">{{ auth.profile.email }}</span>
+                                <span class="label label-orange" style="font-weight: normal;">admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              <div class="widget stay-on-collapse">
+                <nav class="widget-body">
+                  <ul ng-controller="NavigationController" class="acc-menu" sticky-scroll="40">
+                    <li ng-repeat="item in menu"
+                      ng-class="{ hasChild: (item.children!==undefined),
+                            active: item.selected,
+                              open: (item.children!==undefined) && item.open,
+                         'nav-separator': item.separator==true,
+                              'search-focus': (searchQuery.length>0 && item.selected) }"
+                            ng-show="!(searchQuery.length && !item.selected)"
+                      ng-include="'app/views/templates/nav_renderer.html'"
+                    ></li>
+                  </ul>
+                </nav>
+              </div>
+
+              <div class="widget" id="widget-progress" ng-cloak>
+                    <div class="widget-heading">
+                        Limits
+                    </div>
+                    <div class="widget-body">
+
+                        <div class="mini-progressbar">
+                            <div class="clearfix mb-sm">
+                                <div class="pull-left">Dashboards</div>
+                                <div class="pull-right">25%</div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-info" style="width: 25%"></div>
+                            </div>
+                        </div>
+                        <div class="mini-progressbar">
+                            <div class="clearfix mb-sm">
+                                <div class="pull-left">Charts</div>
+                                <div class="pull-right">50%</div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-lime" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+          </div> <!-- #sidebar-->
+        </div>
+        <div class="static-content-wrapper">
+          <div class="static-content">
+            <div ui-view></div>
+          </div>
+
+          <footer role="contentinfo" ng-show="!layoutLoading" ng-cloak>
+            <div class="clearfix">
+                  <ul class="list-unstyled list-inline pull-left">
+                      <li><h6 style="margin: 0;">&copy; 2015 Dashboard In a Minute</h6></li>
+                  </ul>
+                  <button class="pull-right btn btn-link btn-xs hidden-print" back-to-top><i class="ti ti-arrow-up"></i></button>
+              </div>
+          </footer>
+        </div>
+      </div>
+  </div>
+
+<script src="lib/enquire/dist/enquire.js"></script>
+</body>
+</html>
